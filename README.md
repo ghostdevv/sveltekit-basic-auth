@@ -1,6 +1,6 @@
 # SvelteKit Basic Auth
 
-This svelte-kit hook password protects an app.  See:  [`src/hooks.ts`](https://github.com/ghostdevv/sveltekit-basic-auth/blob/main/src/hooks.ts)
+This svelte-kit hook password protects an app.  See:  [`src/hooks.ts`](./src/hooks.ts)
 
 The hook checks for a valid auth token, and if it's not found, it prompts the user to login using the browsers built-in auth mechanism.
 
