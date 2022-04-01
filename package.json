@@ -1,7 +1,7 @@
 {
 	"name": "basic-auth",
 	"version": "0.0.2",
-	"tags": [
+	"keywords": [
 		"svelte",
 		"sveltekit",
 		"auth",
