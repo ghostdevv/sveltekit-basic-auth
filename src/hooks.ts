@@ -7,6 +7,8 @@ const users: AuthUser[] = [
         password: 'test',
     },
 ];
+//* Replace ⬆ with ⬇ after adding your `.env` file
+// const users: AuthUser[] = JSON.parse(process.env.USERS);
 
 const resolveUser = (authorization: string): AuthUser | false => {
     const token = authorization.replace('Basic ', '');
