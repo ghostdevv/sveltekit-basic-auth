@@ -1,7 +1,7 @@
 <script>
-    import { user } from '$lib/user';
+    import { session } from '$app/stores';
 </script>
 
 <h1>
-    {$user.username}
+    {$session.user.username}
 </h1>
