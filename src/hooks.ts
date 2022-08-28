@@ -1,4 +1,4 @@
-import type { GetSession, Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit';
 import type { AuthUser } from '$lib/types';
 
 const users: AuthUser[] = [
@@ -59,7 +59,3 @@ export const handle: Handle = async ({ event, resolve }) => {
 
     return await resolve(event);
 };
-
-export const getSession: GetSession = ({ locals }) => ({
-    user: locals.user,
-});
