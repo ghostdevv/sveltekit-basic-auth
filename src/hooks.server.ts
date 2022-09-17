@@ -1,4 +1,5 @@
 import type { Handle } from '@sveltejs/kit';
+// import { USERS } from '$env/static/private';
 import type { AuthUser } from '$lib/types';
 
 const users: AuthUser[] = [
@@ -7,8 +8,9 @@ const users: AuthUser[] = [
         password: 'test',
     },
 ];
-//* Replace ⬆ with ⬇ after adding your `.env` file
-// const users: AuthUser[] = JSON.parse(process.env.USERS);
+
+//* Replace ⬆ with ⬇ after adding your `.env` file and uncomment line 2
+// const users: AuthUser[] = JSON.parse(USERS);
 
 const resolveUser = (authorization: string): AuthUser | false => {
     const token = authorization.replace('Basic ', '');
