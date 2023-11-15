@@ -1,7 +1,7 @@
-<script>
-    import { page } from '$app/stores';
+<script lang="ts">
+    export let data;
 </script>
 
 <h1>
-    {$page.data.user.username}
+    {data.user.username}
 </h1>

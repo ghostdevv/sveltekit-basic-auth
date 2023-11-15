@@ -1,9 +1,13 @@
-/// <reference types="@sveltejs/kit" />
+import { User } from '$lib/types';
 
-// See https://kit.svelte.dev/docs/types#the-app-namespace
+// See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-declare namespace App {
-    interface Locals {
-        user: import('$lib/types.d').User;
+declare global {
+    namespace App {
+        interface Locals {
+            user: User;
+        }
     }
 }
+
+export {};
