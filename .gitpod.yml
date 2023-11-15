@@ -1,0 +1,2 @@
+tasks:
+  - init: cp .env.example .env && pnpm install
