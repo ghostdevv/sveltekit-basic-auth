@@ -1,6 +1,7 @@
 # SvelteKit Basic Auth
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ghostdevv/sveltekit-basic-auth)
+[![Open in SvelteLab](https://docs.sveltelab.dev/button/dark_short.svg)](https://sveltelab.dev/github.com/ghostdevv/sveltekit-basic-auth)
 
 ## Complete Example
 
