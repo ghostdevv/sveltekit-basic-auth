@@ -12,7 +12,7 @@ A list of username password pairs are stored in an environment variable (SEE: [.
 
 This is the simplest form of the basic auth hook for you to copy and paste into your app, if you want a complete example that includes showing the logged in user see above.
 
-// src/hooks.server.ts
+`src/hooks.server.ts`
 ```ts
 import type { Handle } from '@sveltejs/kit';
 import { USERS } from '$env/static/private';
@@ -57,7 +57,7 @@ export const handle: Handle = ({ event, resolve }) => {
 };
 ```
 
-// .env
+`.env`
 ```bash
 USERS="[{"username":"ghost","password":"test"}]"
 ```
