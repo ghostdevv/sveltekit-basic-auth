@@ -1,16 +1,12 @@
 import type { Handle } from '@sveltejs/kit';
-// import { USERS } from '$env/static/private';
+import { USERS } from '$env/static/private';
 import type { AuthUser } from '$lib/types';
 
-const users: AuthUser[] = [
-    {
-        username: 'ghost',
-        password: 'test',
-    },
-];
+/**
+ * ? The types you will need to copy are in $lib/types and src/app.d.ts
+ */
 
-//* Replace ⬆ with ⬇ after adding your `.env` file and uncomment line 2
-// const users: AuthUser[] = JSON.parse(USERS);
+const users: AuthUser[] = JSON.parse(USERS);
 
 export const basicAuth: Handle = ({ event, resolve }) => {
     const authorization = event.request.headers.get('Authorization');
