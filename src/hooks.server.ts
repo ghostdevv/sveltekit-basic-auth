@@ -12,29 +12,7 @@ const users: AuthUser[] = [
 //* Replace ⬆ with ⬇ after adding your `.env` file and uncomment line 2
 // const users: AuthUser[] = JSON.parse(USERS);
 
-const resolveUser = (authorization: string): AuthUser | false => {
-    const token = authorization.replace('Basic ', '');
-
-    const [username, password] = Buffer.from(token, 'base64')
-        .toString()
-        .split(':');
-
-    if (!username || !password || !username.length || !password.length)
-        return false;
-
-    const user = users.find(
-        (u) => u.username === username && u.password === password,
-    );
-
-    if (!user) return false;
-
-    return {
-        username,
-        password,
-    };
-};
-
-export const handle: Handle = async ({ event, resolve }) => {
+export const basicAuth: Handle = ({ event, resolve }) => {
     const authorization = event.request.headers.get('Authorization');
 
     if (!authorization || !authorization.startsWith('Basic '))
@@ -45,7 +23,15 @@ export const handle: Handle = async ({ event, resolve }) => {
             },
         });
 
-    const user = resolveUser(authorization);
+    const token = authorization.replace('Basic ', '');
+
+    const [username, password] = Buffer.from(token, 'base64')
+        .toString()
+        .split(':');
+
+    const user: AuthUser | undefined = users.find(
+        (u) => u.username === username && u.password === password,
+    );
 
     if (!user)
         return new Response('Unauthorized', {
@@ -59,5 +45,9 @@ export const handle: Handle = async ({ event, resolve }) => {
         username: user.username,
     };
 
-    return await resolve(event);
+    return resolve(event);
 };
+
+// Use sequence if you have multiple hooks
+// https://kit.svelte.dev/docs/modules#sveltejs-kit-hooks-sequence
+export const handle = basicAuth;
